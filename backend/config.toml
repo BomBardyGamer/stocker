@@ -1,0 +1,31 @@
+# Where Stocker should bind the web interface at.
+#
+# The hostname and port provided here will be bound to by actix, and so
+# must be free and available for actix to use. This is also where the
+# web interface and REST API will be found.
+[web]
+# The host name or IP address the web server should bind to.
+# Use "0.0.0.0" for all interfaces. Defaults to "127.0.0.1".
+hostname = "127.0.0.1"
+# The port the web server should bind to. Defaults to 8080.
+port = 8080
+
+# Where Stocker should find your database and how it will connect to it.
+#
+# The details provided here will be formatted in to a PostgreSQL connection
+# string, as defined here:
+# https://www.postgresql.org/docs/9.4/libpq-connect.html#LIBPQ-CONNSTRING
+#
+# For example, the default string will be as follows:
+# postgres://stocker:stocker@localhost:5432/stocker
+[database]
+# The host name or IP address where the database is located. Defaults to "localhost"
+hostname = "localhost"
+# The port that the database is bound to. Defaults to 5432.
+#port = "5432"
+# The name of the database. Defaults to "stocker".
+name = "stocker"
+# The username to connect to the database with. Defaults to "stocker".
+username = "stocker"
+# The password to connect to the database with. Defaults to "stocker".
+password = "stocker"
