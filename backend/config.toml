@@ -19,7 +19,8 @@ port = 8080
 # For example, the default string will be as follows:
 # postgres://stocker:stocker@localhost:5432/stocker
 [database]
-# The host name or IP address where the database is located. Defaults to "localhost"
+# The host name or IP address where the database is located. Defaults to "localhost".
+# If this begins with a slash ('/'), it denotes a UNIX domain socket.
 hostname = "localhost"
 # The port that the database is bound to. Defaults to 5432.
 #port = "5432"
@@ -29,3 +30,32 @@ name = "stocker"
 username = "stocker"
 # The password to connect to the database with. Defaults to "stocker".
 password = "stocker"
+# The SSL mode for database connections.
+#
+# The options here are as follows:
+# * "disable" - Disables SSL entirely.
+# * "allow" - Allows SSL connections, but does not require them.
+# * "prefer" - Prefers SSL connections where possible, but some connections may still be non-SSL.
+# * "require" - Requires that all connections be encrypted with SSL. This is the default.
+# * "verify-ca" - Same as require but also verifies the authority of connections.
+# * "verify-all" - Same as verify-ca, but also verifies the host name matches that in the certificate.
+# More information can be found here:
+# https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS
+ssl-mode = "require"
+# The name of the file containing the SSL root certificate.
+# This is used when the SSL mode is "verify-ca" or "verify-full".
+#ssl-root-certificate = "./ca-certificate.crt"
+
+# How Stocker's database connection pool should be set up.
+# This is for advanced users. Don't touch these if you don't know what they mean.
+[database.pool]
+# The maximum number of connections that may be in the pool. Defaults to 10.
+max-size = 10
+# The minimum number of idle connections the pool will maintain. Defaults to max-size.
+#min-idle = 10
+# The maximum amount of time a connection can be open for, in seconds. Defaults to 30 minutes (1800 seconds).
+max-lifetime = 1800
+# The amount of time after which idle connections will be closed, in seconds. Defaults to 10 minutes (600 seconds).
+idle-timeout = 600
+# The amount of time Stocker will wait for a connection before timing out, in seconds. Defaults to 30 seconds.
+connection-timeout = 30

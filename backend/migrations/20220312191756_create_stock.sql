@@ -3,5 +3,5 @@
 CREATE TABLE stock (
     id SERIAL PRIMARY KEY,
     item_id SERIAL REFERENCES items(id),
-    quantity INTEGER
+    quantity INTEGER NOT NULL
 );

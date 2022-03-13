@@ -1,17 +1,18 @@
 use chrono::NaiveDateTime;
+use serde_derive::Serialize;
 
-#[derive(Queryable)]
+#[derive(Serialize)]
 pub struct Item {
-    id: i32,
-    title: String,
-    icon: String,
-    url: String,
-    time_added: NaiveDateTime
+    pub gtin: i32,
+    pub title: String,
+    pub icon: String,
+    pub url: String,
+    pub time_added: NaiveDateTime
 }
 
-#[derive(Queryable)]
+#[derive(Serialize)]
 pub struct Stock {
-    id: i32,
-    item_id: i32,
-    quantity: i32
+    pub id: i32,
+    pub item_id: i32,
+    pub quantity: i32
 }

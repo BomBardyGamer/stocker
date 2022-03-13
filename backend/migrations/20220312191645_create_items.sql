@@ -2,8 +2,9 @@
 -- items it knows about.
 CREATE TABLE items (
     id SERIAL PRIMARY KEY,
-    title TEXT,
-    icon TEXT,
-    url TEXT,
-    time_added TIMESTAMP
+    gtin INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    icon TEXT NOT NULL,
+    url TEXT NOT NULL,
+    time_added TIMESTAMP NOT NULL
 );
