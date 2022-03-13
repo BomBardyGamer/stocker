@@ -70,7 +70,7 @@ pub async fn get_item(parameters: Query<GetParameters>, pool: Data<PgPool>) -> i
             url: row.get(2),
             time_added: row.get(3)
         },
-        Ok(None) => return HttpResponse::NoContent().finish(),
+        Ok(None) => return HttpResponse::NotFound().finish(),
         Err(error) => return InternalError::new(error, StatusCode::INTERNAL_SERVER_ERROR).error_response()
     };
     HttpResponse::Ok().body(serde_json::to_string(&item).unwrap())
