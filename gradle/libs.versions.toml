@@ -1,0 +1,46 @@
+metadata.format.version = "1.1"
+
+[versions]
+# General
+kotlin = "1.6.10"
+spring = "2.6.4"
+
+# Plugins
+springDependencyManagement = "1.0.11.RELEASE"
+licenser = "0.6.1"
+
+# Dependencies
+jackson = "2.13.1"
+h2 = "2.1.210"
+postgresql = "42.3.3"
+exposed = "0.37.3"
+hikari = "5.0.1"
+
+[libraries]
+# Spring
+spring-boot-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring" }
+spring-boot-devtools = { group = "org.springframework.boot", name = "spring-boot-devtools", version.ref = "spring" }
+spring-boot-configurationProcessor = { group = "org.springframework.boot", name = "spring-boot-configuration-processor", version.ref = "spring" }
+spring-boot-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring" }
+spring-boot-log4j = { group = "org.springframework.boot", name = "spring-boot-starter-log4j2", version.ref = "spring" }
+
+# Exposed
+exposed-core = { group = "org.jetbrains.exposed", name = "exposed-core", version.ref = "exposed" }
+exposed-jdbc = { group = "org.jetbrains.exposed", name = "exposed-jdbc", version.ref = "exposed" }
+exposed-dao = { group = "org.jetbrains.exposed", name = "exposed-dao", version.ref = "exposed" }
+exposed-javaTime = { group = "org.jetbrains.exposed", name = "exposed-java-time", version.ref = "exposed" }
+exposed-springBoot = { group = "org.jetbrains.exposed", name = "exposed-spring-boot-starter", version.ref = "exposed" }
+
+# Data
+hikari = { group = "com.zaxxer", name = "HikariCP", version.ref = "hikari" }
+jackson-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
+postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
+
+[bundles]
+exposed = ["exposed-core", "exposed-jdbc", "exposed-dao", "exposed-javaTime", "exposed-springBoot"]
+
+[plugins]
+# Spring
+spring-boot = { id = "org.springframework.boot", version.ref = "spring" }
+spring-dependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }

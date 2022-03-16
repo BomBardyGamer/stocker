@@ -1,0 +1,10 @@
+# This tells Stocker where to find your database.
+#
+# More information on the properties available here can be found here:
+# https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.data
+spring:
+  datasource:
+    url: "jdbc:h2:./stocker"
+    driver-class-name: "org.h2.Driver"
+    username: "stocker"
+    password: "stocker"
